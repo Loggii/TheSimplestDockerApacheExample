@@ -9,7 +9,7 @@ services:
     networks:
       - local-network
     volumes:
-    - ./front/public:/var/www/html:rw
+    - ./front/public:/var/www/html
     privileged: true
   back:
     build:
@@ -18,7 +18,7 @@ services:
     networks:
       - local-network
     volumes:
-    - ./back/public:/var/www/html:rw
+    - ./back/public:/var/www/html
     privileged: true
 networks:
   local-network:
