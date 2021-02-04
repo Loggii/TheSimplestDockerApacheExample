@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  front:
+    build:
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - "80:80"
+    networks:
+      - local-network
+    volumes:
+    - ./front/public:/var/www/html:rw
+    privileged: true
+  back:
+    build:
+      context: .
+      dockerfile: dockerfile
+    networks:
+      - local-network
+    volumes:
+    - ./back/public:/var/www/html:rw
+    privileged: true
+networks:
+  local-network:
+    driver: bridge
